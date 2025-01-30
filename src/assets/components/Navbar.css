@@ -1,0 +1,22 @@
+/* Ensure the navbar spans the full width of the screen */
+.custom-navbar {
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Remove default padding from the container-fluid */
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Ensure the navbar content spans the full width */
+.navbar-collapse {
+  width: 100%;
+}
+
+/* Optional: Add a border or shadow for better visual separation */
+.custom-navbar {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
