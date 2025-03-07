@@ -1,22 +1,102 @@
-/* Ensure the navbar spans the full width of the screen */
-.custom-navbar {
+/* Navbar Container */
+.navbar {
   width: 100%;
-  padding-left: 0;
-  padding-right: 0;
+  background: linear-gradient(90deg, #111, #222);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
-/* Remove default padding from the container-fluid */
-.container-fluid {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-/* Ensure the navbar content spans the full width */
-.navbar-collapse {
+/* Navbar inner container */
+.navbar-container {
+  display: flex;
   width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Optional: Add a border or shadow for better visual separation */
-.custom-navbar {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Brand Logo */
+.navbar-brand {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #222; /* Darker background for better contrast */
+  border-radius: 25px;
+  padding: 8px 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.search-bar:hover {
+  background: #2c2c2c;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  padding: 10px;
+  flex: 1;
+  font-size: 16px;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+
+.search-input:focus {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.search-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px;
+  transition: 0.3s;
+}
+
+.search-button:hover {
+  color: #1db954;
+  transform: scale(1.1);
+}
+
+
+/* Navbar Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #00aced;
 }
