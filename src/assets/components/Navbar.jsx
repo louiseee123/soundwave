@@ -1,21 +1,26 @@
-import "./Navbar.css";
+import React from 'react';
+import { FaSearch, FaSun, FaMoon } from 'react-icons/fa';
 
-function Navbar() {
+function Navbar({ darkMode, toggleDarkMode }) {
   return (
     <nav className="navbar">
-      <div className="navbar-container">
-        <a className="navbar-brand" href="#">🎵 Soundwave</a>
-        
-        <div className="search-bar">
-          <input type="text" placeholder="Search for music..." className="search-input" />
-          <button className="search-button">🔍</button>
-        </div>
-        
-        <div className="nav-links">
-          <a href="#" className="nav-link">Home</a>
-          <a href="#" className="nav-link">Trending</a>
-          <a href="#" className="nav-link">Library</a>
-        </div>
+      <div className="navbar-brand">
+        <h1>Soundwave</h1>
+      </div>
+      <div className="navbar-search">
+        <input
+          type="text"
+          placeholder="Search for music..."
+          className="search-input"
+        />
+        <button className="search-button">
+          <FaSearch />
+        </button>
+      </div>
+      <div className="navbar-dark-mode">
+        <button className="dark-mode-button" onClick={toggleDarkMode}>
+          {darkMode ? <FaSun /> : <FaMoon />}
+        </button>
       </div>
     </nav>
   );

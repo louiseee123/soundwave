@@ -1,102 +1,128 @@
 /* Navbar Container */
 .navbar {
-  width: 100%;
-  background: linear-gradient(90deg, #111, #222);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-/* Navbar inner container */
-.navbar-container {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Brand Logo */
-.navbar-brand {
+  padding: 20px;
+  background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient background */
   color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Deeper shadow for a 3D effect */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.5s ease; /* Smooth transition for all properties */
 }
 
-/* Search Bar */
-.search-bar {
+/* Navbar Brand */
+.navbar-brand h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Text shadow for depth */
+  animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Navbar Search */
+.navbar-search {
   display: flex;
   align-items: center;
-  background: #222; /* Darker background for better contrast */
-  border-radius: 25px;
-  padding: 8px 12px;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-}
-
-.search-bar:hover {
-  background: #2c2c2c;
+  gap: 10px; /* Added gap for better spacing */
 }
 
 .search-input {
+  padding: 10px 15px;
   border: none;
-  outline: none;
-  background: transparent;
-  color: white;
-  padding: 10px;
-  flex: 1;
-  font-size: 16px;
+  border-radius: 25px; /* Fully rounded corners */
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  color: #fff;
+  transition: all 0.5s ease; /* Smooth transition for all properties */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .search-input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-  font-style: italic;
+  color: rgba(255, 255, 255, 0.7); /* Light placeholder text */
 }
 
 .search-input:focus {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 10px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.3); /* Lighter background on focus */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow on focus */
 }
 
 .search-button {
-  background: none;
+  padding: 10px 15px;
   border: none;
-  color: white;
-  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  color: #fff;
+  border-radius: 25px; /* Fully rounded corners */
   cursor: pointer;
-  padding: 5px;
-  transition: 0.3s;
+  transition: all 0.5s ease; /* Smooth transition for all properties */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .search-button:hover {
-  color: #1db954;
-  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.3); /* Lighter background on hover */
+  transform: scale(1.1); /* Slightly scale up on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
 }
 
-
-/* Navbar Links */
-.nav-links {
+/* Navbar Dark Mode Toggle */
+.navbar-dark-mode {
   display: flex;
-  gap: 20px;
+  align-items: center;
 }
 
-.nav-link {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s ease-in-out;
+.dark-mode-button {
+  padding: 10px 15px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  color: #fff;
+  border-radius: 25px; /* Fully rounded corners */
+  cursor: pointer;
+  transition: all 0.5s ease; /* Smooth transition for all properties */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-.nav-link:hover {
-  color: #00aced;
+.dark-mode-button:hover {
+  background-color: rgba(255, 255, 255, 0.3); /* Lighter background on hover */
+  transform: scale(1.1); /* Slightly scale up on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+/* Dark Mode Overrides */
+.dark-mode .navbar {
+  background: linear-gradient(135deg, #1e1e1e, #121212); /* Dark gradient background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Deeper shadow for depth */
+}
+
+.dark-mode .search-input {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  color: #fff;
+}
+
+.dark-mode .search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* Light placeholder text */
+}
+
+.dark-mode .search-button,
+.dark-mode .dark-mode-button {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+}
+
+.dark-mode .search-button:hover,
+.dark-mode .dark-mode-button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Lighter background on hover */
 }

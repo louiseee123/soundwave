@@ -1,202 +1,968 @@
-.app-container {
-  font-family: Arial, sans-serif;
-  background-color: #121212;
-  color: white;
-  text-align: center;
-  min-height: 100vh;
-  padding-top: 80px; /* Prevent navbar from blocking content */
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Navbar Fix */
+.dark-mode {
+  background-color: #121212;
+  color: #fff;
+}
+
+/* App Container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar */
 .navbar {
-  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
   top: 0;
-  width: 100%;
-  background-color: #181818;
   z-index: 1000;
+}
+
+.navbar-brand h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.navbar-search {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-search input {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 25px;
+  margin-right: 10px;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-search input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.navbar-search input:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+
+.navbar-search button {
+  padding: 10px 15px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-search button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.navbar-dark-mode button {
+  padding: 10px 15px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-dark-mode button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 /* Main Content */
 .main-content {
   padding: 20px;
-  max-width: 900px;
-  margin: auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
-
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap'); /* Futuristic font */
-
+/* Hero Section */
 .hero-section {
-  padding: 50px 25px;
-  background: linear-gradient(135deg, #4a90e2, #6a5acd); /* Modern blue-to-purple gradient */
-  border-radius: 15px;
-  margin-bottom: 35px;
   text-align: center;
-  color: white; /* Ensures text is readable */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for depth */
-  font-family: 'Orbitron', sans-serif; /* Cool futuristic font */
-  letter-spacing: 1px;
+  padding: 150px 20px; /* Increased padding for more breathing space */
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: #fff;
+  border-radius: 20px; /* More rounded corners */
+  margin-bottom: 60px; /* Increased margin for better spacing */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow for a 3D effect */
+  position: relative;
+  overflow: hidden; /* Ensures pseudo-elements don't overflow */
+  animation: fadeIn 1.5s ease-in-out; /* Fade-in animation */
 }
 
-.hero-section h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.hero-section p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-}
-
-
-
-/* Music Sections */
-.trending, .featured-artists, .user-playlist, .music-player {
-  background: linear-gradient(135deg, #2c2c2c, #3a3a3a); /* Smooth dark gradient */
-  padding: 25px;
-  border-radius: 15px;
-  margin-bottom: 25px;
-  color: #fff; /* Ensures text stands out */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
-.trending:hover, 
-.featured-artists:hover, 
-.user-playlist:hover, 
-.music-player:hover {
-  transform: translateY(-5px); /* Subtle hover lift effect */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-}
-
-/* Section Titles */
-.trending h2, 
-.featured-artists h2, 
-.user-playlist h2, 
-.music-player h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.8rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-  color: #1db954; /* Spotify green for contrast */
-}
-
-/* General text styling */
-.trending p, 
-.featured-artists p, 
-.user-playlist li, 
-.music-player p {
-  font-size: 1.1rem;
-  font-weight: 500;
-  opacity: 0.9;
-}
-
-
-/* Music Player Buttons */
-.player-controls button {
-  margin: 5px;
-  padding: 12px 20px;
-  border: none;
-  background: linear-gradient(135deg, #ff4e50, #fc913a); /* Modern red-orange gradient */
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  font-family: 'Orbitron', sans-serif; /* Futuristic font */
-}
-
-/* Subtle hover effects */
-.player-controls button:hover {
-  transform: translateY(-3px) scale(1.08);
-  background: linear-gradient(135deg, #ff6b6b, #ff9a76); /* Lighter gradient on hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-}
-
-/* Active (when clicked) */
-.player-controls button:active {
-  transform: scale(0.98);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-
-h1, h2 {
-  margin-bottom: 15px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  line-height: 1.3;
-  color: white;
-  text-align: center;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  h1, h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-
-.trending, .featured-artists, .user-playlist, .music-player {
-  margin-top: 20px;
-  padding: 20px;
-  background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(50, 50, 50, 0.9)); /* Dark glass effect */
-  border-radius: 12px;
-  backdrop-filter: blur(8px); /* Adds a soft blur effect */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease-in-out;
+/* Glowing effect */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%);
+  animation: rotateGlow 10s linear infinite; /* Rotating glow effect */
+  pointer-events: none; /* Ensures it doesn't interfere with clicks */
 }
 
-/* Subtle hover effect */
-.trending:hover, 
-.featured-artists:hover, 
-.user-playlist:hover, 
-.music-player:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
-  background: linear-gradient(135deg, rgba(40, 40, 40, 1), rgba(60, 60, 60, 1));
+@keyframes rotateGlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-
-button {
-  margin: 5px;
-  padding: 12px 18px;
-  border: none;
-  background: linear-gradient(135deg, #1db954, #1ed760);
-  color: white;
-  font-size: 16px;
+/* Hero text */
+.hero-section h1 {
+  font-size: 4rem; /* Larger font size */
+  margin-bottom: 20px; /* Increased spacing */
   font-weight: bold;
-  border-radius: 8px;
+  letter-spacing: 2px; /* Wider letter spacing */
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Text shadow for depth */
+  animation: slideIn 1s ease-in-out; /* Slide-in animation */
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-section p {
+  font-size: 1.75rem; /* Slightly larger font size */
+  opacity: 0.9;
+  margin-bottom: 40px; /* Increased spacing */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+  animation: fadeInUp 1.5s ease-in-out; /* Fade-in and slide-up animation */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Call-to-action button */
+.hero-section .cta-button {
+  padding: 15px 30px;
+  border: none;
+  background-color: #ff6f61; /* Vibrant color for contrast */
+  color: #fff;
+  border-radius: 30px; /* Fully rounded corners */
+  font-size: 1.25rem;
+  font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  animation: bounce 2s infinite; /* Bouncing animation */
 }
 
-/* Smooth hover effect */
-button:hover {
-  background: linear-gradient(135deg, #1ed760, #1db954);
-  transform: scale(1.05);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+.hero-section .cta-button:hover {
+  background-color: #ff4a3d; /* Darker shade on hover */
+  transform: scale(1.05); /* Slight scale-up on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
 }
 
-/* Active (pressed) effect */
-button:active {
-  transform: scale(0.95);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+/* Bouncing animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
-/* Disabled button styling */
-button:disabled {
-  background: #555;
-  cursor: not-allowed;
-  opacity: 0.6;
-  box-shadow: none;
+/* Responsive design */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 100px 20px; /* Adjusted padding for smaller screens */
+  }
+
+  .hero-section h1 {
+    font-size: 2.5rem; /* Smaller font size for mobile */
+  }
+
+  .hero-section p {
+    font-size: 1.25rem; /* Smaller font size for mobile */
+  }
+
+  .hero-section .cta-button {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
 }
 
+/* Featured Tracks */
+.featured-tracks {
+  margin-bottom: 40px;
+}
+
+.featured-tracks h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.track-list {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.track-card {
+  background: linear-gradient(135deg, #ffffff, #f5f5f5); /* Subtle gradient background */
+  padding: 25px; /* Increased padding for more space */
+  border-radius: 20px; /* More rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow for a 3D effect */
+  text-align: center;
+  min-width: 220px; /* Slightly wider */
+  transition: all 0.5s ease; /* Smooth transition for all properties */
+  position: relative;
+  overflow: hidden; /* Ensures pseudo-elements don't overflow */
+  cursor: pointer; /* Indicates interactivity */
+}
+
+/* Hover effect */
+.track-card:hover {
+  transform: translateY(-10px) scale(1.05); /* Lift and scale up on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+  background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient on hover */
+  color: #fff; /* White text on hover */
+}
+
+/* Glowing border effect */
+.track-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent 70%);
+  animation: rotateGlow 6s linear infinite; /* Rotating glow effect */
+  pointer-events: none; /* Ensures it doesn't interfere with clicks */
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.5s ease; /* Smooth fade-in */
+}
+
+.track-card:hover::before {
+  opacity: 1; /* Show glow on hover */
+}
+
+@keyframes rotateGlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Track image */
+.track-card img {
+  width: 100%;
+  border-radius: 15px; /* Rounded corners for the image */
+  margin-bottom: 20px; /* Increased spacing */
+  transition: transform 0.5s ease; /* Smooth image scaling */
+}
+
+.track-card:hover img {
+  transform: scale(1.1); /* Slightly scale up the image on hover */
+}
+
+/* Track title */
+.track-card h3 {
+  font-size: 1.5rem;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  transition: color 0.5s ease; /* Smooth color transition */
+}
+
+.track-card:hover h3 {
+  color: #fff; /* White text on hover */
+}
+
+/* Track artist */
+.track-card p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px; /* Increased spacing */
+  transition: color 0.5s ease; /* Smooth color transition */
+}
+
+.track-card:hover p {
+  color: #e0e0e0; /* Lighter text on hover */
+}
+
+/* Play button */
+.track-card button {
+  padding: 12px 24px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 25px; /* Fully rounded corners */
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.5s ease; /* Smooth transition for all properties */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+.track-card:hover button {
+  background-color: #ff6f61; /* Vibrant color on hover */
+  transform: scale(1.1); /* Slightly scale up on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .track-card {
+    min-width: 180px; /* Smaller width for mobile */
+    padding: 20px; /* Adjusted padding */
+  }
+
+  .track-card h3 {
+    font-size: 1.25rem; /* Smaller font size for mobile */
+  }
+
+  .track-card p {
+    font-size: 0.875rem; /* Smaller font size for mobile */
+  }
+
+  .track-card button {
+    padding: 10px 20px;
+    font-size: 0.875rem;
+  }
+}
+
+/* Library Section */
+.library {
+  margin-bottom: 60px; /* Increased margin for better spacing */
+}
+
+.library h2 {
+  font-size: 2.5rem; /* Larger font size */
+  margin-bottom: 30px; /* Increased spacing */
+  font-weight: bold;
+  color: #007bff;
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Text shadow for depth */
+  animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.playlist-list {
+  display: flex;
+  gap: 25px; /* Increased gap for better spacing */
+  overflow-x: auto;
+  padding-bottom: 25px; /* Increased padding */
+  scrollbar-width: thin; /* Slim scrollbar for modern browsers */
+  scrollbar-color: #007bff #f5f5f5; /* Custom scrollbar colors */
+}
+
+.playlist-list::-webkit-scrollbar {
+  height: 8px; /* Slim scrollbar for WebKit browsers */
+}
+
+.playlist-list::-webkit-scrollbar-track {
+  background: #f5f5f5; /* Scrollbar track color */
+  border-radius: 10px;
+}
+
+.playlist-list::-webkit-scrollbar-thumb {
+  background: #007bff; /* Scrollbar thumb color */
+  border-radius: 10px;
+}
+
+.playlist-card {
+  background: linear-gradient(135deg, #ffffff, #f5f5f5); /* Subtle gradient background */
+  padding: 25px; /* Increased padding for more space */
+  border-radius: 20px; /* More rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow for a 3D effect */
+  text-align: center;
+  min-width: 220px; /* Slightly wider */
+  transition: all 0.5s ease; /* Smooth transition for all properties */
+  position: relative;
+  overflow: hidden; /* Ensures pseudo-elements don't overflow */
+  cursor: pointer; /* Indicates interactivity */
+}
+
+/* Hover effect */
+.playlist-card:hover {
+  transform: translateY(-10px) scale(1.05); /* Lift and scale up on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+  background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient on hover */
+  color: #291b1b; /* White text on hover */
+}
+
+/* Glowing border effect */
+.playlist-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent 70%);
+  animation: rotateGlow 6s linear infinite; /* Rotating glow effect */
+  pointer-events: none; /* Ensures it doesn't interfere with clicks */
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.5s ease; /* Smooth fade-in */
+}
+
+.playlist-card:hover::before {
+  opacity: 1; /* Show glow on hover */
+}
+
+@keyframes rotateGlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Playlist title */
+.playlist-card h3 {
+  font-size: 1.75rem; /* Larger font size */
+  margin: 15px 0 10px; /* Increased spacing */
+  font-weight: bold;
+  transition: color 0.5s ease; /* Smooth color transition */
+}
+
+.playlist-card:hover h3 {
+  color: #fff; /* White text on hover */
+}
+
+/* Playlist track count */
+.playlist-card p {
+  font-size: 1.1rem; /* Slightly larger font size */
+  color: #666;
+  margin-bottom: 20px; /* Increased spacing */
+  transition: color 0.5s ease; /* Smooth color transition */
+}
+
+.playlist-card:hover p {
+  color: #e0e0e0; /* Lighter text on hover */
+}
+
+/* Delete button */
+.playlist-card button {
+  padding: 12px 24px;
+  border: none;
+  background-color: #dc3545;
+  color: #fff;
+  border-radius: 25px; /* Fully rounded corners */
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.5s ease; /* Smooth transition for all properties */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+.playlist-card:hover button {
+  background-color: #ff6f61; /* Vibrant color on hover */
+  transform: scale(1.1); /* Slightly scale up on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .library h2 {
+    font-size: 2rem; /* Smaller font size for mobile */
+  }
+
+  .playlist-card {
+    min-width: 180px; /* Smaller width for mobile */
+    padding: 20px; /* Adjusted padding */
+  }
+
+  .playlist-card h3 {
+    font-size: 1.5rem; /* Smaller font size for mobile */
+  }
+
+  .playlist-card p {
+    font-size: 1rem; /* Smaller font size for mobile */
+  }
+
+  .playlist-card button {
+    padding: 10px 20px;
+    font-size: 0.875rem;
+  }
+}
+
+.create-playlist {
+  margin-top: 30px; /* Increased margin for better spacing */
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Increased gap for better spacing */
+  animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.create-playlist input {
+  padding: 12px 20px; /* Increased padding for better touch experience */
+  border: 2px solid #007bff; /* Thicker border with primary color */
+  border-radius: 30px; /* Fully rounded corners */
+  font-size: 1rem;
+  width: 250px; /* Wider input field */
+  background-color: #f5f5f5; /* Light background */
+  transition: all 0.5s ease; /* Smooth transition for all properties */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.create-playlist input:focus {
+  outline: none;
+  border-color: #0056b3; /* Darker border on focus */
+  background-color: #fff; /* White background on focus */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow on focus */
+}
+
+.create-playlist button {
+  padding: 12px 24px; /* Increased padding for better touch experience */
+  border: none;
+  background: linear-gradient(135deg, #28a745, #218838); /* Gradient background */
+  color: #fff;
+  border-radius: 30px; /* Fully rounded corners */
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.5s ease; /* Smooth transition for all properties */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  position: relative;
+  overflow: hidden; /* Ensures pseudo-elements don't overflow */
+}
+
+/* Glowing effect on hover */
+.create-playlist button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent 70%);
+  animation: rotateGlow 6s linear infinite; /* Rotating glow effect */
+  pointer-events: none; /* Ensures it doesn't interfere with clicks */
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.5s ease; /* Smooth fade-in */
+}
+
+.create-playlist button:hover::before {
+  opacity: 1; /* Show glow on hover */
+}
+
+@keyframes rotateGlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.create-playlist button:hover {
+  background: linear-gradient(135deg, #218838, #28a745); /* Reverse gradient on hover */
+  transform: scale(1.05); /* Slightly scale up on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .create-playlist {
+    flex-direction: column; /* Stack input and button vertically on mobile */
+    gap: 10px; /* Reduced gap for mobile */
+  }
+
+  .create-playlist input {
+    width: 100%; /* Full width on mobile */
+    margin-right: 0; /* Remove margin for stacked layout */
+  }
+
+  .create-playlist button {
+    width: 100%; /* Full width on mobile */
+  }
+}
+
+/* Music Player */
+.music-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.now-playing {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.now-playing img {
+  width: 60px;
+  border-radius: 10px;
+}
+
+.now-playing h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.now-playing p {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.player-controls {
+  display: flex;
+  gap: 15px;
+}
+
+.player-controls button {
+  padding: 10px 20px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.player-controls button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.progress-bar {
+  flex: 1;
+  margin: 0 20px;
+}
+
+.progress-bar input {
+  width: 100%;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.volume-control input {
+  width: 100px;
+}
+
+.shuffle-repeat {
+  display: flex;
+  gap: 15px;
+}
+
+.shuffle-repeat button {
+  padding: 10px 20px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.shuffle-repeat button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 40px 20px; /* Increased padding for more space */
+  background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient background */
+  color: #fff;
+  margin-top: 60px; /* Increased margin for better spacing */
+  box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow for a 3D effect */
+  position: relative;
+  overflow: hidden; /* Ensures pseudo-elements don't overflow */
+  animation: fadeIn 1.5s ease-in-out; /* Fade-in animation */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glowing effect */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%);
+  animation: rotateGlow 10s linear infinite; /* Rotating glow effect */
+  pointer-events: none; /* Ensures it doesn't interfere with clicks */
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.5s ease; /* Smooth fade-in */
+}
+
+.footer:hover::before {
+  opacity: 1; /* Show glow on hover */
+}
+
+@keyframes rotateGlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Footer text */
+.footer p {
+  margin: 0;
+  font-size: 1.25rem; /* Larger font size */
+  font-weight: bold;
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Text shadow for depth */
+  transition: transform 0.5s ease; /* Smooth scaling on hover */
+}
+
+.footer:hover p {
+  transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+/* Social icons */
+.footer .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Increased gap for better spacing */
+  margin-top: 20px; /* Added margin for spacing */
+}
+
+.footer .social-icons a {
+  color: #fff;
+  font-size: 1.5rem; /* Larger icons */
+  transition: all 0.5s ease; /* Smooth transition for all properties */
+}
+
+.footer .social-icons a:hover {
+  color: #ff6f61; /* Vibrant color on hover */
+  transform: scale(1.2); /* Slightly scale up on hover */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 20px; /* Adjusted padding for mobile */
+  }
+
+  .footer p {
+    font-size: 1rem; /* Smaller font size for mobile */
+  }
+
+  .footer .social-icons {
+    gap: 15px; /* Smaller gap for mobile */
+  }
+
+  .footer .social-icons a {
+    font-size: 1.25rem; /* Smaller icons for mobile */
+  }
+}
+
+/* Dark Mode Overrides */
+.dark-mode .navbar {
+  background: linear-gradient(135deg, #1e1e1e, #121212); /* Dark gradient background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Deeper shadow for depth */
+}
+
+.dark-mode .navbar-search input {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent input background */
+  color: #fff; /* White text */
+}
+
+.dark-mode .navbar-search input::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* Light placeholder text */
+}
+
+.dark-mode .navbar-search button {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent button background */
+}
+
+.dark-mode .navbar-search button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Lighter on hover */
+}
+
+.dark-mode .hero-section {
+  background: linear-gradient(135deg, #1e1e1e, #121212); /* Dark gradient background */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Deeper shadow for depth */
+}
+
+.dark-mode .hero-section h1 {
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Darker text shadow */
+}
+
+.dark-mode .hero-section p {
+  color: #e0e0e0; /* Lighter text for better readability */
+}
+
+.dark-mode .track-card,
+.dark-mode .playlist-card {
+  background: linear-gradient(135deg, #2c2c2c, #1e1e1e); /* Dark gradient background */
+  color: #fff; /* White text */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Deeper shadow for depth */
+}
+
+.dark-mode .track-card:hover,
+.dark-mode .playlist-card:hover {
+  background: linear-gradient(135deg, #007bff, #0056b3); /* Vibrant gradient on hover */
+  transform: translateY(-10px) scale(1.05); /* Lift and scale up on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); /* Deeper shadow on hover */
+}
+
+.dark-mode .track-card p,
+.dark-mode .playlist-card p {
+  color: #b0b0b0; /* Lighter text for better readability */
+}
+
+.dark-mode .track-card button,
+.dark-mode .playlist-card button {
+  background-color: #dc3545; /* Vibrant button color */
+  color: #fff; /* White text */
+}
+
+.dark-mode .track-card button:hover,
+.dark-mode .playlist-card button:hover {
+  background-color: #ff6f61; /* Brighter on hover */
+  transform: scale(1.1); /* Slightly scale up on hover */
+}
+
+.dark-mode .music-player {
+  background: linear-gradient(135deg, #1e1e1e, #121212); /* Dark gradient background */
+  box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.3); /* Deeper shadow for depth */
+}
+
+.dark-mode .music-player button {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent button background */
+}
+
+.dark-mode .music-player button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Lighter on hover */
+}
+
+.dark-mode .footer {
+  background: linear-gradient(135deg, #1e1e1e, #121212); /* Dark gradient background */
+  box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.3); /* Deeper shadow for depth */
+}
+
+.dark-mode .footer p {
+  color: #e0e0e0; /* Lighter text for better readability */
+}
+
+.dark-mode .footer .social-icons a {
+  color: #fff; /* White icons */
+}
+
+.dark-mode .footer .social-icons a:hover {
+  color: #ff6f61; /* Vibrant color on hover */
+}
+
+/* Glowing effect for dark mode */
+.dark-mode .track-card::before,
+.dark-mode .playlist-card::before,
+.dark-mode .music-player::before,
+.dark-mode .footer::before {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 70%);
+  opacity: 0; /* Hidden by default */
+}
+
+.dark-mode .track-card:hover::before,
+.dark-mode .playlist-card:hover::before,
+.dark-mode .music-player:hover::before,
+.dark-mode .footer:hover::before {
+  opacity: 1; /* Show glow on hover */
+}
